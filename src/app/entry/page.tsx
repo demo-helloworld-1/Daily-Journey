@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
-export default function EntryPage() {
+export default async function EntryPage() {
+  const session = await auth();
+  const isAdmin = session?.user?.isAdmin;
+
+  if (!isAdmin) {
+    redirect("/unauthorized");
+  }
+
   return (
     <main className="flex-1 w-full max-w-4xl mx-auto px-6 md:px-12 lg:px-24 py-12 pt-28 lg:ml-64 relative">
       {/* Breadcrumb / Back Navigation */}

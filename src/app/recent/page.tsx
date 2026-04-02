@@ -146,6 +146,11 @@ export default function RecentPage() {
             <circle cx="250" cy="60" fill="#ffd9e1" r="6"></circle>
             <circle cx="390" cy="60" fill="#ffd9e1" r="6"></circle>
           </svg>
+          <style>{`
+            @media (prefers-color-scheme: dark), .dark-mode-enabled svg {
+              filter: brightness(0.8) invert(1);
+            }
+          `}</style>
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="font-body italic text-on-surface-variant text-sm">Every entry is a step on your map.</p>
           </div>
